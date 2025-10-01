@@ -280,7 +280,7 @@ const lch2lab = ([l, c, h]: [number, number, number]): [number, number, number] 
   if (c < 0) {
     c = 0;
   }
-  if (isNaN(h)) {
+  if (Number.isNaN(h)) {
     h = 0;
   }
   return [l, c * Math.cos((h * Math.PI) / 180), c * Math.sin((h * Math.PI) / 180)];

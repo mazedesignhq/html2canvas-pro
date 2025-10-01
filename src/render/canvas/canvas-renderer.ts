@@ -103,7 +103,9 @@ export class CanvasRenderer extends Renderer {
       this.popEffect();
     }
 
-    effects.forEach((effect) => this.applyEffect(effect));
+    effects.forEach((effect) => {
+      this.applyEffect(effect);
+    });
   }
 
   applyEffect(effect: IElementEffect): void {
@@ -147,7 +149,6 @@ export class CanvasRenderer extends Renderer {
 
   async renderNode(paint: ElementPaint): Promise<void> {
     if (contains(paint.container.flags, FLAGS.DEBUG_RENDER)) {
-      debugger;
     }
 
     if (paint.container.styles.isVisible()) {
@@ -373,7 +374,7 @@ export class CanvasRenderer extends Renderer {
       try {
         const image = await this.context.cache.match(container.src);
         this.renderReplacedElement(container, curves, image);
-      } catch (e) {
+      } catch (_e) {
         this.context.logger.error(`Error loading image ${container.src}`);
       }
     }
@@ -386,7 +387,7 @@ export class CanvasRenderer extends Renderer {
       try {
         const image = await this.context.cache.match(container.svg);
         this.renderReplacedElement(container, curves, image);
-      } catch (e) {
+      } catch (_e) {
         this.context.logger.error(`Error loading svg ${container.svg.substring(0, 255)}`);
       }
     }
@@ -500,12 +501,12 @@ export class CanvasRenderer extends Renderer {
       if (container.styles.listStyleImage !== null) {
         const img = container.styles.listStyleImage;
         if (img.type === CSSImageType.URL) {
-          let image;
+          let image: HTMLImageElement | HTMLCanvasElement;
           const url = (img as CSSURLImage).url;
           try {
             image = await this.context.cache.match(url);
             this.ctx.drawImage(image, container.bounds.left - (image.width + 10), container.bounds.top);
-          } catch (e) {
+          } catch (_e) {
             this.context.logger.error(`Error loading list-style-image ${url}`);
           }
         }
@@ -537,7 +538,6 @@ export class CanvasRenderer extends Renderer {
 
   async renderStackContent(stack: StackingContext): Promise<void> {
     if (contains(stack.element.container.flags, FLAGS.DEBUG_RENDER)) {
-      debugger;
     }
     // https://www.w3.org/TR/css-position-3/#painting-order
     // 1. the background and borders of the element forming the stacking context.
@@ -652,17 +652,17 @@ export class CanvasRenderer extends Renderer {
     let index = container.styles.backgroundImage.length - 1;
     for (const backgroundImage of container.styles.backgroundImage.slice(0).reverse()) {
       if (backgroundImage.type === CSSImageType.URL) {
-        let image;
+        let image: HTMLImageElement | undefined;
         const url = (backgroundImage as CSSURLImage).url;
         try {
           image = await this.context.cache.match(url);
-        } catch (e) {
+        } catch (_e) {
           this.context.logger.error(`Error loading background-image ${url}`);
         }
 
         if (image) {
-          const imageWidth = isNaN(image.width) || image.width === 0 ? 1 : image.width;
-          const imageHeight = isNaN(image.height) || image.height === 0 ? 1 : image.height;
+          const imageWidth = Number.isNaN(image.width) || image.width === 0 ? 1 : image.width;
+          const imageHeight = Number.isNaN(image.height) || image.height === 0 ? 1 : image.height;
           const [path, x, y, width, height] = calculateBackgroundRendering(container, index, [
             imageWidth,
             imageHeight,
@@ -681,9 +681,9 @@ export class CanvasRenderer extends Renderer {
         const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
         const gradient = ctx.createLinearGradient(x0, y0, x1, y1);
 
-        processColorStops(backgroundImage.stops, lineLength || 1).forEach((colorStop) =>
-          gradient.addColorStop(colorStop.stop, asString(colorStop.color)),
-        );
+        processColorStops(backgroundImage.stops, lineLength || 1).forEach((colorStop) => {
+          gradient.addColorStop(colorStop.stop, asString(colorStop.color));
+        });
 
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
@@ -701,9 +701,9 @@ export class CanvasRenderer extends Renderer {
         if (rx > 0 && ry > 0) {
           const radialGradient = this.ctx.createRadialGradient(left + x, top + y, 0, left + x, top + y, rx);
 
-          processColorStops(backgroundImage.stops, rx * 2).forEach((colorStop) =>
-            radialGradient.addColorStop(colorStop.stop, asString(colorStop.color)),
-          );
+          processColorStops(backgroundImage.stops, rx * 2).forEach((colorStop) => {
+            radialGradient.addColorStop(colorStop.stop, asString(colorStop.color));
+          });
 
           this.path(path);
           this.ctx.fillStyle = radialGradient;
@@ -852,7 +852,7 @@ export class CanvasRenderer extends Renderer {
       this.ctx.clip();
     }
 
-    let startX, startY, endX, endY;
+    let startX: number, startY: number, endX: number, endY: number;
     if (isBezierCurve(boxPaths[0])) {
       startX = (boxPaths[0] as BezierCurve).start.x;
       startY = (boxPaths[0] as BezierCurve).start.y;
@@ -868,7 +868,7 @@ export class CanvasRenderer extends Renderer {
       endY = (boxPaths[1] as Vector).y;
     }
 
-    let length;
+    let length: number;
     if (side === 0 || side === 2) {
       length = Math.abs(startX - endX);
     } else {
@@ -976,7 +976,6 @@ const calculateBackgroundCurvedPaintingArea = (clip: BACKGROUND_CLIP, curves: Bo
       return calculateBorderBoxPath(curves);
     case BACKGROUND_CLIP.CONTENT_BOX:
       return calculateContentBoxPath(curves);
-    case BACKGROUND_CLIP.PADDING_BOX:
     default:
       return calculatePaddingBoxPath(curves);
   }
@@ -988,7 +987,6 @@ const canvasTextAlign = (textAlign: TEXT_ALIGN): CanvasTextAlign => {
       return 'center';
     case TEXT_ALIGN.RIGHT:
       return 'right';
-    case TEXT_ALIGN.LEFT:
     default:
       return 'left';
   }

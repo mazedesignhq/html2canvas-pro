@@ -15,7 +15,7 @@ import { TextContainer } from './text-container';
 const LIST_OWNERS = ['OL', 'UL', 'MENU'];
 
 const parseNodeTree = (context: Context, node: Node, parent: ElementContainer, root: ElementContainer) => {
-  for (let childNode = node.firstChild, nextNode; childNode; childNode = nextNode) {
+  for (let childNode = node.firstChild, nextNode: ChildNode | null; childNode; childNode = nextNode) {
     nextNode = childNode.nextSibling;
 
     // Fixes #2238 #1624 - Fix the issue of TextNode content being overlooked in rendering due to being perceived as blank by trim().
@@ -23,7 +23,9 @@ const parseNodeTree = (context: Context, node: Node, parent: ElementContainer, r
       parent.textNodes.push(new TextContainer(context, childNode, parent.styles));
     } else if (isElementNode(childNode)) {
       if (isSlotElement(childNode) && childNode.assignedNodes) {
-        childNode.assignedNodes().forEach((childNode) => parseNodeTree(context, childNode, parent, root));
+        childNode.assignedNodes().forEach((childNode) => {
+          parseNodeTree(context, childNode, parent, root);
+        });
       } else {
         const container = createContainer(context, childNode);
         if (container.styles.isVisible()) {

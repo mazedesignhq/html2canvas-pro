@@ -182,7 +182,7 @@ const _color = (context: Context, args: CSSValue[]) => {
             .replace(/g|y/, color[1].toString())
             .replace(/b|z/, color[2].toString());
 
-          return new Function('return ' + expression)();
+          return new Function(`return ${expression}`)();
         }
       }
 
@@ -266,7 +266,7 @@ const _color = (context: Context, args: CSSValue[]) => {
 };
 
 const SUPPORTED_COLOR_SPACES_ABSOLUTE: {
-  [key: string]: (args: number[]) => number;
+  [key: string]: (args: [number, number, number, number]) => number;
 } = {
   srgb: packSrgb,
   'srgb-linear': packSrgbLinear,

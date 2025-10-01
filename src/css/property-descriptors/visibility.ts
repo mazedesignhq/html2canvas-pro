@@ -17,7 +17,6 @@ export const visibility: IPropertyIdentValueDescriptor<VISIBILITY> = {
         return VISIBILITY.HIDDEN;
       case 'collapse':
         return VISIBILITY.COLLAPSE;
-      case 'visible':
       default:
         return VISIBILITY.VISIBLE;
     }

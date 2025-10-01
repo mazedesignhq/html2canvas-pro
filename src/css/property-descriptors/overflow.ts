@@ -25,7 +25,6 @@ export const overflow: IPropertyListDescriptor<OVERFLOW[]> = {
           return OVERFLOW.CLIP;
         case 'auto':
           return OVERFLOW.AUTO;
-        case 'visible':
         default:
           return OVERFLOW.VISIBLE;
       }

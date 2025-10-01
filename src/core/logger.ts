@@ -20,7 +20,7 @@ export class Logger {
   debug(...args: unknown[]): void {
     if (this.enabled) {
       // eslint-disable-next-line no-console
-      if (typeof window !== 'undefined' && window.console && typeof console.debug === 'function') {
+      if (window?.console && typeof console.debug === 'function') {
         // eslint-disable-next-line no-console
         console.debug(this.id, `${this.getTime()}ms`, ...args);
       } else {
@@ -37,7 +37,7 @@ export class Logger {
   info(...args: unknown[]): void {
     if (this.enabled) {
       // eslint-disable-next-line no-console
-      if (typeof window !== 'undefined' && window.console && typeof console.info === 'function') {
+      if (window?.console && typeof console.info === 'function') {
         // eslint-disable-next-line no-console
         console.info(this.id, `${this.getTime()}ms`, ...args);
       }
@@ -48,7 +48,7 @@ export class Logger {
   warn(...args: unknown[]): void {
     if (this.enabled) {
       // eslint-disable-next-line no-console
-      if (typeof window !== 'undefined' && window.console && typeof console.warn === 'function') {
+      if (window?.console && typeof console.warn === 'function') {
         // eslint-disable-next-line no-console
         console.warn(this.id, `${this.getTime()}ms`, ...args);
       } else {
@@ -61,7 +61,7 @@ export class Logger {
   error(...args: unknown[]): void {
     if (this.enabled) {
       // eslint-disable-next-line no-console
-      if (typeof window !== 'undefined' && window.console && typeof console.error === 'function') {
+      if (window?.console && typeof console.error === 'function') {
         // eslint-disable-next-line no-console
         console.error(this.id, `${this.getTime()}ms`, ...args);
       } else {

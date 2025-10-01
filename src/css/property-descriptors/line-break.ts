@@ -14,7 +14,6 @@ export const lineBreak: IPropertyIdentValueDescriptor<LINE_BREAK> = {
     switch (lineBreak) {
       case 'strict':
         return LINE_BREAK.STRICT;
-      case 'normal':
       default:
         return LINE_BREAK.NORMAL;
     }

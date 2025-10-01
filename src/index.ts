@@ -114,7 +114,7 @@ const renderElement = async (element: HTMLElement, opts: Partial<Options>): Prom
     height: opts.height ?? Math.ceil(height),
   };
 
-  let canvas;
+  let canvas: HTMLCanvasElement;
 
   if (foreignObjectRendering) {
     context.logger.debug(`Document cloned, using foreign object rendering`);

@@ -25,7 +25,6 @@ export const parsePathForBorder = (curves: BoundCurves, borderSide: number): Pat
         curves.bottomLeftBorderBox,
         curves.bottomLeftPaddingBox,
       );
-    case 3:
     default:
       return createPathFromCurves(
         curves.bottomLeftBorderBox,
@@ -59,7 +58,6 @@ export const parsePathForBorderDoubleOuter = (curves: BoundCurves, borderSide: n
         curves.bottomLeftBorderBox,
         curves.bottomLeftBorderDoubleOuterBox,
       );
-    case 3:
     default:
       return createPathFromCurves(
         curves.bottomLeftBorderBox,
@@ -93,7 +91,6 @@ export const parsePathForBorderDoubleInner = (curves: BoundCurves, borderSide: n
         curves.bottomLeftBorderDoubleInnerBox,
         curves.bottomLeftPaddingBox,
       );
-    case 3:
     default:
       return createPathFromCurves(
         curves.bottomLeftBorderDoubleInnerBox,
@@ -112,7 +109,6 @@ export const parsePathForBorderStroke = (curves: BoundCurves, borderSide: number
       return createStrokePathFromCurves(curves.topRightBorderStroke, curves.bottomRightBorderStroke);
     case 2:
       return createStrokePathFromCurves(curves.bottomRightBorderStroke, curves.bottomLeftBorderStroke);
-    case 3:
     default:
       return createStrokePathFromCurves(curves.bottomLeftBorderStroke, curves.topLeftBorderStroke);
   }

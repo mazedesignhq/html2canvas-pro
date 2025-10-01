@@ -1,4 +1,4 @@
-import { deepStrictEqual } from 'assert';
+import { deepStrictEqual } from 'node:assert';
 import { Parser } from '../../syntax/parser';
 import { FLAG_INTEGER, TokenType } from '../../syntax/tokenizer';
 import { deg } from '../angle';

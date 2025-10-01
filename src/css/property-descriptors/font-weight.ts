@@ -15,7 +15,6 @@ export const fontWeight: IPropertyValueDescriptor<number> = {
       switch (token.value) {
         case 'bold':
           return 700;
-        case 'normal':
         default:
           return 400;
       }

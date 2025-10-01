@@ -17,7 +17,6 @@ export const wordBreak: IPropertyIdentValueDescriptor<WORD_BREAK> = {
         return WORD_BREAK.BREAK_ALL;
       case 'keep-all':
         return WORD_BREAK.KEEP_ALL;
-      case 'normal':
       default:
         return WORD_BREAK.NORMAL;
     }

@@ -14,7 +14,6 @@ export const overflowWrap: IPropertyIdentValueDescriptor<OVERFLOW_WRAP> = {
     switch (overflow) {
       case 'break-word':
         return OVERFLOW_WRAP.BREAK_WORD;
-      case 'normal':
       default:
         return OVERFLOW_WRAP.NORMAL;
     }

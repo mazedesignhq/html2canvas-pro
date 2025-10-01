@@ -18,7 +18,6 @@ export const textAlign: IPropertyIdentValueDescriptor<TEXT_ALIGN> = {
       case 'center':
       case 'justify':
         return TEXT_ALIGN.CENTER;
-      case 'left':
       default:
         return TEXT_ALIGN.LEFT;
     }

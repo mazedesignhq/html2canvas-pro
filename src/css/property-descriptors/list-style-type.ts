@@ -171,7 +171,6 @@ export const listStyleType: IPropertyIdentValueDescriptor<LIST_STYLE_TYPE> = {
         return LIST_STYLE_TYPE.DISCLOSURE_OPEN;
       case 'disclosure-closed':
         return LIST_STYLE_TYPE.DISCLOSURE_CLOSED;
-      case 'none':
       default:
         return LIST_STYLE_TYPE.NONE;
     }

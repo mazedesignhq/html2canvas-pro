@@ -9,7 +9,7 @@ export class CounterState {
   getCounterValue(name: string): number {
     const counter = this.counters[name];
 
-    if (counter && counter.length) {
+    if (counter?.length) {
       return counter[counter.length - 1];
     }
     return 1;
@@ -21,7 +21,9 @@ export class CounterState {
   }
 
   pop(counters: string[]): void {
-    counters.forEach((counter) => this.counters[counter].pop());
+    counters.forEach((counter) => {
+      this.counters[counter].pop();
+    });
   }
 
   parse(style: CSSParsedCounterDeclaration): string[] {
@@ -334,11 +336,11 @@ export const createCounterText = (value: number, type: LIST_STYLE_TYPE, appendSu
   const spaceSuffix = appendSuffix ? ' ' : '';
   switch (type) {
     case LIST_STYLE_TYPE.DISC:
-      return '•' + spaceSuffix;
+      return `•${spaceSuffix}`;
     case LIST_STYLE_TYPE.CIRCLE:
-      return '◦' + spaceSuffix;
+      return `◦${spaceSuffix}`;
     case LIST_STYLE_TYPE.SQUARE:
-      return '◾' + spaceSuffix;
+      return `◾${spaceSuffix}`;
     case LIST_STYLE_TYPE.DECIMAL_LEADING_ZERO: {
       const string = createCounterStyleFromRange(value, 48, 57, true, defaultSuffix);
       return string.length < 4 ? `0${string}` : string;
@@ -491,7 +493,6 @@ export const createCounterText = (value: number, type: LIST_STYLE_TYPE, appendSu
       return createCounterStyleFromRange(value, 0xe50, 0xe59, true, defaultSuffix);
     case LIST_STYLE_TYPE.TIBETAN:
       return createCounterStyleFromRange(value, 0xf20, 0xf29, true, defaultSuffix);
-    case LIST_STYLE_TYPE.DECIMAL:
     default:
       return createCounterStyleFromRange(value, 48, 57, true, defaultSuffix);
   }

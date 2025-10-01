@@ -44,7 +44,6 @@ export const getAbsoluteValue = (token: LengthPercentage, parent: number): numbe
       case 'rem':
       case 'em':
         return 16 * token.number; // TODO use correct font-size
-      case 'px':
       default:
         return token.number;
     }

@@ -24,7 +24,6 @@ export class ElementContainer {
     element: Element,
   ) {
     if (isDebugging(element, DebuggerType.PARSE)) {
-      debugger;
     }
 
     this.styles = new CSSParsedDeclaration(context, window.getComputedStyle(element, null));

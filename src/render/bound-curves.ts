@@ -330,7 +330,6 @@ const getCurvePoints = (x: number, y: number, r1: number, r2: number, position: 
       return new BezierCurve(new Vector(x, y), new Vector(x + ox, y), new Vector(xm, ym - oy), new Vector(xm, ym));
     case CORNER.BOTTOM_RIGHT:
       return new BezierCurve(new Vector(xm, y), new Vector(xm, y + oy), new Vector(x + ox, ym), new Vector(x, ym));
-    case CORNER.BOTTOM_LEFT:
     default:
       return new BezierCurve(new Vector(xm, ym), new Vector(xm - ox, ym), new Vector(x, y + oy), new Vector(x, y));
   }

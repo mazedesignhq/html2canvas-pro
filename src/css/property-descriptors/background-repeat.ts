@@ -37,7 +37,6 @@ const parseBackgroundRepeat = (value: string): BACKGROUND_REPEAT => {
     case 'repeat-y':
     case 'no-repeat repeat':
       return BACKGROUND_REPEAT.REPEAT_Y;
-    case 'repeat':
     default:
       return BACKGROUND_REPEAT.REPEAT;
   }

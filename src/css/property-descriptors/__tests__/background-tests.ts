@@ -1,4 +1,4 @@
-import { deepStrictEqual } from 'assert';
+import { deepStrictEqual } from 'node:assert';
 import { Parser } from '../../syntax/parser';
 import { deg } from '../../types/angle';
 import { pack } from '../../types/color-utilities';

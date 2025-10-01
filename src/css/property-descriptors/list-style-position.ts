@@ -14,7 +14,6 @@ export const listStylePosition: IPropertyIdentValueDescriptor<LIST_STYLE_POSITIO
     switch (position) {
       case 'inside':
         return LIST_STYLE_POSITION.INSIDE;
-      case 'outside':
       default:
         return LIST_STYLE_POSITION.OUTSIDE;
     }
