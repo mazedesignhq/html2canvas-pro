@@ -43,7 +43,8 @@
     "format": "biome check --write",
     "lint": "biome check",
     "test": "vitest run",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "css-line-break": "^2.1.0",
