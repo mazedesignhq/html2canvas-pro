@@ -6,6 +6,14 @@
   "description": "Screenshots with JavaScript. Next generation!",
   "main": "dist/html2canvas-pro.js",
   "module": "dist/html2canvas-pro.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "type": "module",
   "typings": "dist/types/index.d.ts",
   "browser": "dist/html2canvas-pro.js",
   "version": "2.0.0",

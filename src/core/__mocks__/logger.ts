@@ -19,4 +19,4 @@ export class Logger {
   error(): void {}
 }
 
-export const logger = new Logger();
+export const logger: Logger = new Logger();

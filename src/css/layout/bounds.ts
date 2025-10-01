@@ -33,7 +33,7 @@ export class Bounds {
       : Bounds.EMPTY;
   }
 
-  static EMPTY = new Bounds(0, 0, 0, 0);
+  static EMPTY: Bounds = new Bounds(0, 0, 0, 0);
 }
 
 export const parseBounds = (context: Context, node: Element): Bounds => {

@@ -105,10 +105,10 @@ export interface UnicodeRangeToken extends IToken {
 
 export type CSSToken = Token | StringValueToken | NumberValueToken | DimensionToken | UnicodeRangeToken | HashToken;
 
-export const FLAG_UNRESTRICTED = 1 << 0;
-export const FLAG_ID = 1 << 1;
-export const FLAG_INTEGER = 1 << 2;
-export const FLAG_NUMBER = 1 << 3;
+export const FLAG_UNRESTRICTED: number = 1 << 0;
+export const FLAG_ID: number = 1 << 1;
+export const FLAG_INTEGER: number = 1 << 2;
+export const FLAG_NUMBER: number = 1 << 3;
 
 const LINE_FEED = 0x000a;
 const SOLIDUS = 0x002f;
