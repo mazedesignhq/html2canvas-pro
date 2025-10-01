@@ -23,6 +23,7 @@
   "engines": {
     "node": ">=22.0.0"
   },
+  "files": ["dist", "LICENSE", "README.md"],
   "homepage": "https://yorickshan.github.io/html2canvas-pro/",
   "repository": {
     "type": "git",

@@ -16,7 +16,8 @@
     "module": "ESNext",
     "declaration": true,
     "skipLibCheck": true,
-    "declarationDir": "dist/types","isolatedDeclarations": true,
+    "declarationDir": "dist/types",
+    "isolatedDeclarations": true,
     "resolveJsonModule": true
   },
   "include": ["src"]
