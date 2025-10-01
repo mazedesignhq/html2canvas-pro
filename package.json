@@ -26,7 +26,7 @@
   "homepage": "https://yorickshan.github.io/html2canvas-pro/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yorickshan/html2canvas-pro"
+    "url": "https://github.com/mazedesignhq/html2canvas-pro"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",
