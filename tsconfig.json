@@ -1,20 +1,23 @@
 {
-    "compilerOptions": {
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true,
-        "types": ["node", "jest"],
-        "target": "es5",
-        "lib": ["es2015", "dom"],
-        "sourceMap": true,
-        "outDir": "dist/lib",
-        "declaration": true,
-        "skipLibCheck": true,
-        "declarationDir": "dist/types",
-        "resolveJsonModule": true
-    },
-    "include": ["src"]
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "types": ["node", "vitest/globals"],
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "outDir": "dist/lib",
+    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "declaration": true,
+    "skipLibCheck": true,
+    "declarationDir": "dist/types",
+    "resolveJsonModule": true
+  },
+  "include": ["src"]
 }

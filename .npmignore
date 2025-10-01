@@ -16,7 +16,7 @@ tmp/
 .npmignore
 .prettierignore
 .prettierrc
-jest.config.js
+vitest.config.mts
 karma.conf.js
 karma.js
 rollup.config.ts
